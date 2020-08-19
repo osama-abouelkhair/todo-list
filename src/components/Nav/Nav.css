@@ -1,0 +1,44 @@
+
+.main-bar {
+    height: 80px;
+    border-bottom: 2px solid #e9ecef;
+}
+
+.nav {
+    padding-top: 20px;
+}
+.settings {
+    font-size: 36px;
+    padding: 0rem 1rem !important;
+    line-height: 1 !important;
+}
+
+a {
+    color: #4b5780 !important;
+}
+
+.btn-secondary {
+    background-color: #4b5780 !important;
+    border-color: #4b5780 !important;
+}
+
+.todo-search .form-control {
+    padding: 0.375rem 5.75rem !important;
+}
+
+.logo {
+    font-family: Roboto, cursive;
+    font-size: 36px;
+    font-weight: 900;
+    line-height: 0.4;
+    padding: 0.5rem 1rem !important;
+}
+/* 
+.right-nav {
+    height: 50px !important;
+}
+
+
+.left-nav {
+    height: 50px !important;
+} */
