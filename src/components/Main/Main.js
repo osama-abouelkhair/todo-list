@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { todoData } from '../../services/todo-data'
-import TodoCard from '../todoCard/TodoCard';
+import TodoCard from '../TodoCard/TodoCard';
 
 
 export default class Main extends Component {

@@ -6,6 +6,7 @@
 
 .nav {
     padding-top: 20px;
+    width: 100%;
 }
 .settings {
     font-size: 36px;
@@ -27,18 +28,12 @@ a {
 }
 
 .logo {
-    font-family: Roboto, cursive;
     font-size: 36px;
     font-weight: 900;
     line-height: 0.4;
     padding: 0.5rem 1rem !important;
 }
-/* 
-.right-nav {
-    height: 50px !important;
+
+.search {
+    width: 70%;
 }
-
-
-.left-nav {
-    height: 50px !important;
-} */
