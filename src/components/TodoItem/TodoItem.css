@@ -1,0 +1,9 @@
+.TodoItem {
+    margin: 80px auto !important;
+    align-self: center;
+    width: 60%;
+}
+
+:local(button) {
+    margin: 1rem auto !important;
+}

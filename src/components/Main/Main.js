@@ -13,7 +13,7 @@ export default class Main extends Component {
 
     render() {
         const cardItems = this.state.data.map(item =>
-            <TodoCard key={item.id} todo={item} />
+            <TodoCard key={item.id} todo={item} handleOnClick={this.props.edit} />
         )
 
         return (

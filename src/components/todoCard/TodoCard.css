@@ -1,6 +1,5 @@
-.card {
-    margin: 20px !important;
-    width: 18rem;
+.TodoCard {
+    margin: 10px auto  !important;
     align-self: center;
-    width: 80%;
+    width: 60%;
 }
