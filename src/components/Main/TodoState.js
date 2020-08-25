@@ -1,5 +1,6 @@
 import { createStore } from 'redux';
 import { todoData } from '../../services/todo-data';
+import { v4 as uuid } from 'uuid';
 
 const todoReducer = (state = todoData, action) => {
     switch (action.type) {
@@ -7,7 +8,11 @@ const todoReducer = (state = todoData, action) => {
             if (action.todoItem.id) {
                 return editTodoItem(state, action.todoItem)
             } else {
-                return [state, action.todoItem];
+                return [...state, {
+                    ...action.todoItem,
+                    id: state[state.length - 1].id + 1,
+                    uuid: uuid()
+                }];
             }
         default:
             return state

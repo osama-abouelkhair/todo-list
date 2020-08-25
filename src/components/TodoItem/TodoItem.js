@@ -7,7 +7,7 @@ export default class TodoItem extends Component {
         super(props);
         this.handleTitleInput = this.handleTitleInput.bind(this);
         this.state = {
-            todo: this.props.todo
+            todo: this.props.todo ? this.props.todo : {title: '', content: ''} 
         }
     }
 
@@ -15,8 +15,8 @@ export default class TodoItem extends Component {
         this.setState((prevState) => ({
             ...prevState,
             todo: {
-                id: prevState.todo.id,
-                uuid: prevState.todo.uuid,
+                id: prevState.todo.id || undefined,
+                uuid: prevState.todo.uuid || undefined,
                 content: prevState.todo.content,
                 title: value,
             }
@@ -27,8 +27,8 @@ export default class TodoItem extends Component {
         this.setState((prevState) => ({
             ...prevState,
             todo: {
-                id: prevState.todo.id,
-                uuid: prevState.todo.uuid,
+                id: prevState.todo.id || undefined,
+                uuid: prevState.todo.uuid || undefined,
                 content: value,
                 title: prevState.todo.title,
             }

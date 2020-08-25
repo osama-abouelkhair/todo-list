@@ -42,12 +42,18 @@ class App extends Component {
         <Switch>
           <Route exact={true} path="/" render={() =>
             <Provider store={this.store}>
-              <Main edit={this.edit} />
-            </Provider>} />
-          <Route exact={true} path="/item/:id" render={() => <TodoItem
+              <Main edit={this.edit} history={this.props.history} />
+            </Provider>}
+          />
+          <Route path="/item/new" render={() => <TodoItem
+            onSave={this.save}
+            history={this.props.history} />}
+          />
+          <Route path="/item/:id" render={() => <TodoItem
             todo={this.state.todoItem}
             onSave={this.save}
-            history={this.props.history} />} />
+            history={this.props.history} />}
+          />
           <Route component={NotFound} />
         </Switch>
         <Footer />
