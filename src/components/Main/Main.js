@@ -1,18 +1,12 @@
 import React, { Component } from 'react'
-import { todoData } from '../../services/todo-data'
 import TodoCard from '../TodoCard/TodoCard';
+import { connect } from 'react-redux';
 
 
-export default class Main extends Component {
-    constructor() {
-        super();
-        this.state = {
-            data: todoData
-        };
-    }
-
+class Main extends Component {
+    
     render() {
-        const cardItems = this.state.data.map(item =>
+        const cardItems = this.props.data.map(item =>
             <TodoCard key={item.id} todo={item} handleOnClick={this.props.edit} />
         )
 
@@ -23,3 +17,8 @@ export default class Main extends Component {
         )
     }
 }
+
+export default connect((state) => ({
+    data: state
+})
+)(Main);

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Switch, Route, withRouter } from 'react-router-dom';
-import logo from './logo.svg';
 import './App.css';
 import AppNav from './components/Nav/Nav';
 import Main from './components/Main/Main';
@@ -8,6 +7,8 @@ import Footer from './components/Footer/Footer';
 import NotFound from './components/NotFound/NotFound';
 import TodoItem from './components/TodoItem/TodoItem';
 import { todoData } from './services/todo-data';
+import { todoStore, saveTodoItem } from './components/Main/TodoState';
+import { Provider } from 'react-redux';
 
 class App extends Component {
 
@@ -15,7 +16,8 @@ class App extends Component {
     super();
     this.edit = this.edit.bind(this);
     this.save = this.save.bind(this);
-
+    this.store = todoStore();
+    this.store.subscribe(() => console.log(this.store.getState()));
   }
 
 
@@ -28,9 +30,7 @@ class App extends Component {
 
 
   save(todoItem) {
-    todoData.splice(todoData.findIndex(item => item.id === todoItem.id), 1);
-    todoData.push(todoItem);
-    todoData.sort((firstTodo, secondTodo) => firstTodo.id - secondTodo.id);
+    this.store.dispatch(saveTodoItem(todoItem));
     this.props.history.goBack();
   }
 
@@ -40,7 +40,10 @@ class App extends Component {
       <div className="App d-flex flex-column">
         <AppNav />
         <Switch>
-          <Route exact={true} path="/" render={() => <Main edit={this.edit} />} />
+          <Route exact={true} path="/" render={() =>
+            <Provider store={this.store}>
+              <Main edit={this.edit} />
+            </Provider>} />
           <Route exact={true} path="/item/:id" render={() => <TodoItem
             todo={this.state.todoItem}
             onSave={this.save}
